@@ -9,7 +9,7 @@
                       Cart&nbsp;
                       <a href="#">
                           <i class="icon_bag_alt"></i>
-                          <span>0</span>
+                          <span>{{ getCart.length }}</span>
                       </a>
                       <div v-if="getCart.length>0" class="cart-hover">
                           <div class="select-items">
@@ -52,6 +52,9 @@
 </template>
 <script>
 
+import { mapGetters, mapActions } from 'vuex';
+import { getCarts, removeCartItem } from '../store/product/types';
+
 import BaseHeader from './BaseHeader.vue';
 
 export default {
@@ -64,11 +67,25 @@ export default {
     };
   },
   methods: {
+    removeCart(product) {
+      this.removeCartItem(product);
+    },
+    ...mapActions('product', [removeCartItem]),
   },
   computed: {
     getCart() {
-      return [];
+      return this.getCarts;
     },
+    totalAmount() {
+      let total = 0;
+      const items = this.getCarts;
+      for (let i = 0; i < items.length; i += 1) {
+        total += items[i].totalPrice;
+      }
+
+      return total.toFixed(2);
+    },
+    ...mapGetters('product', [getCarts]),
   },
 };
 </script>
