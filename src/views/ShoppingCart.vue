@@ -23,17 +23,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr v-for="product in getCart" :key="product.id">
                                             <td class="cart-pic first-row">
-                                                <img src="" />
+                                                <img v-bind:src="product.photo" />
                                             </td>
                                             <td class="cart-title first-row text-center">
-                                                <h5></h5>
+                                                <h5>{{ product.name }}</h5>
                                             </td>
-                                            <td class="p-price first-row"></td>
-                                            <td class="p-price first-row"></td>
+                                            <td class="p-price first-row">
+                                                {{ product.quantity }}</td>
+                                            <td class="p-price first-row">${{ product.price }}</td>
                                             <td class="delete-item">
-                                                <a href="#">
+                                                <a v-on:click="removeCart(product)" href="#">
                                                 <i class="material-icons">
                                               close
                                               </i></a></td>
@@ -86,10 +87,10 @@
                                 <ul>
                                     <li class="subtotal">ID Transaction <span>#SH12000</span></li>
                                     <li class="subtotal mt-3">Subtotal
-                                         <span></span></li>
+                                         <span>${{ subTotalAmount }}</span></li>
                                     <li class="subtotal mt-3">Pajak <span>10%</span></li>
                                     <li class="subtotal mt-3">Total Amount
-                                         <span></span></li>
+                                         <span>${{ totalAmount }}</span></li>
                                     <li class="subtotal mt-3">Bank Transfer
                                          <span>Mandiri</span></li>
                                     <li class="subtotal mt-3">No. Rekening
@@ -97,7 +98,7 @@
                                     <li class="subtotal mt-3">Nama Penerima
                                          <span>Denklik</span></li>
                                 </ul>
-                                <a href="#"
+                                <a href="#" v-on:click="checkoutProcess()"
                                  class="proceed-btn primary-btn">I ALREADY PAID</a>
                             </div>
                         </div>
@@ -113,6 +114,9 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { mapActions, mapState } from 'vuex';
+import { removeCartItem, carts, clearProducts } from '../store/product/types';
 
 import Footer from '../components/Footer.vue';
 import BaseHeader from '../components/BaseHeader.vue';
@@ -136,8 +140,64 @@ export default {
     };
   },
   methods: {
+    removeCart(product) {
+      this.removeCartItem(product);
+    },
+    checkoutProcess() {
+      const productId = this.getCart.map((product) => product.id);
+      const productQuantity = this.getCart.map((product) => product.quantity);
+
+      const checkoutDatas = {
+        name: this.customerInfo.name,
+        email: this.customerInfo.email,
+        number: this.customerInfo.number,
+        address: this.customerInfo.address,
+        transaction_total: parseInt(this.totalAmount, 10),
+        transaction_status: 'PENDING',
+        transaction_details: productId,
+        transaction_quantity: productQuantity,
+      };
+
+      axios.post('api/checkout', checkoutDatas, {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+        .then(() => {
+          this.clearProducts();
+          this.$router.push('success');
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+    },
+    ...mapActions('product', [removeCartItem, clearProducts]),
   },
   computed: {
+    getCart() {
+      return this.carts;
+    },
+    subTotalAmount() {
+      let total = 0;
+      const items = this.carts;
+      for (let i = 0; i < items.length; i += 1) {
+        total += items[i].totalPrice;
+      }
+      return total.toFixed(2);
+    },
+    totalAmount() {
+      let total = 0;
+      const items = this.carts;
+      for (let i = 0; i < items.length; i += 1) {
+        total += items[i].totalPrice;
+      }
+
+      total = ((10 / 100) * total) + total;
+
+      return total.toFixed(2);
+    },
+    ...mapState('product', [carts]),
   },
 };
 </script>

@@ -1,5 +1,6 @@
 import {
   fetchProducts, addProductToCart, removeCartItem, SET_PRODUCTS, SET_CARTS,
+  CLEAR_PRODUCTS, clearProducts,
 } from './types';
 
 export default {
@@ -45,5 +46,9 @@ export default {
       commit(SET_CARTS, carts);
       resolve(carts);
     });
+  },
+
+  [clearProducts]({ commit }) {
+    commit(CLEAR_PRODUCTS);
   },
 };

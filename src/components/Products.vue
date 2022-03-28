@@ -15,7 +15,7 @@
                     <a href="#"><i class="icon_bag_alt"></i></a>
                   </li>
                   <li class="quick-view">
-                    <router-link v-bind:to="'/products/' + item.id"> + Quick View</router-link>
+                    <router-link v-bind:to="'/product/' + item.id"> + Quick View</router-link>
                   </li>
                 </ul>
               </div>

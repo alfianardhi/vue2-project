@@ -15,3 +15,4 @@ export const SET_CARTS = 'SET_CARTS';
 export const fetchProducts = 'fetchProducts';
 export const addProductToCart = 'addProductToCart';
 export const removeCartItem = 'removeCartItem';
+export const clearProducts = 'clearProducts';
