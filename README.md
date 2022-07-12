@@ -1,7 +1,7 @@
 <!-- PROJECT SHIELDS -->
-[![Stargazers][stars-shield]][https://github.com/alfianardhi/vue2-project/stargazers]
-[![Issues][issues-shield]][https://github.com/alfianardhi/vue2-project/issues]
-[![LinkedIn][linkedin-shield]][https://id.linkedin.com/in/alfian-ardhi-810872b8]
+[![Stargazers][stars-shield]][stars-url](https://github.com/alfianardhi/vue2-project/stargazers)
+[![Issues][issues-shield]][issues-url](https://github.com/alfianardhi/vue2-project/issues)
+[![LinkedIn][linkedin-shield]][linkedin-url](https://id.linkedin.com/in/alfian-ardhi-810872b8)
 
 [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/)
 &nbsp;
