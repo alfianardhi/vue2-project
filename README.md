@@ -3,9 +3,9 @@
 [![Issues][issues-shield]][https://github.com/alfianardhi/vue2-project/issues]
 [![LinkedIn][linkedin-shield]][https://id.linkedin.com/in/alfian-ardhi-810872b8]
 
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/)
 
 # denklik-template
 
