@@ -85,6 +85,7 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them. (if you haven't any `npm` installation before)
   * To install npm and Node You can follow this [link](https://nodejs.org/en/download/)
 
+### Installation
 ### Installation with NPM
 
 1. Clone the repo
