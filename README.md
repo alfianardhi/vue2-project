@@ -134,7 +134,7 @@ Project Link: [Online shop](https://github.com/alfianardhi/vue2-project)
 [issues-url]: https://github.com/alfianardhi/vue2-project/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://id.linkedin.com/in/alfian-ardhi-810872b8
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: public/img/screenshot.png
 
 # denklik-template
 
