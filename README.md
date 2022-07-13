@@ -50,7 +50,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About the Online shop (Decentralized Applications)
+## About the Online shop
 [![Product Name Screen Shot][product-screenshot]](https://alfianardhi.github.io/vue2-project)
 
 So this project is online shop project use Vue.js
@@ -85,7 +85,7 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them. (if you haven't any `npm` installation before)
   * To install npm and Node You can follow this [link](https://nodejs.org/en/download/)
 
-### Installation
+### Installation with NPM
 
 1. Clone the repo
    ```sh
@@ -100,6 +100,26 @@ This is an example of how to list things you need to use the software and how to
    npm run serve
    ```
 
+### Installation with Yarn
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -135,28 +155,3 @@ Project Link: [Online shop](https://github.com/alfianardhi/vue2-project)
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://id.linkedin.com/in/alfian-ardhi-810872b8
 [product-screenshot]: public/img/screenshot.png
-
-# denklik-template
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
